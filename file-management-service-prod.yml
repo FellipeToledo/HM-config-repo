@@ -1,0 +1,35 @@
+server:
+  port: 8090
+debug: false
+spring:
+  application:
+    name: file-management
+  # ===============================
+  # = DATA SOURCE
+  # ===============================
+  # MongoDB Configuration
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      database: ${MONGODB_DATABASE}
+  # GridFS Configuration
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 50MB
+      max-file-size: 50MB
+
+# Allowed file types
+storage:
+   allowed-mime-types:
+     - image/jpeg
+     - image/png
+     - application/pdf
+   allowed-extensions:
+     - jpg
+     - jpeg
+     - png
+     - pdf
+   max-file-size-mb: 50
+  # Duplicate file handling
+   allow-duplicate-files: false
